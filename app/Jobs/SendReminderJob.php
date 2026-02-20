@@ -6,6 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use App\Models\User;
 use App\Models\UserReminder;
+use Illuminate\Support\Facades\Log;
 
 class SendReminderJob implements ShouldQueue
 {
@@ -17,7 +18,7 @@ class SendReminderJob implements ShouldQueue
      */
     public function __construct()
     {
-        
+
     }
 
     /**
