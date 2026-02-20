@@ -26,6 +26,9 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'phone' => fake()->unique()->numerify('01#########'),
+            'last_login_at' => fake()->dateTimeBetween('-20 days', 'now')->format('Y-m-d H:i:s'),
+            'user_type' => fake()->randomElement(['paid', 'not_paid']),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),

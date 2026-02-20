@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->string('last_login_at')->nullable();
+            $table->enum('user_type',['paid','not_paid'])->default('not_paid');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
