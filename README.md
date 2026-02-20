@@ -41,37 +41,24 @@ This is a Laravel-based project developed for internship purposes. It provides a
 ## Setup Instructions
 
 1. **Clone the repository**
-```bash
 git clone https://github.com/dev-roni/Laravel-inactive-user-reminder.git
+
 cd <project-directory>
 
-Install dependencies
-
-composer install
-
-Configure environment
-
-Set database credentials
-
+2.**Configure environment**
 create a MySQL database named "inactive_user_reminder"
 
 Set queue driver (QUEUE_CONNECTION=database recommended)
 
-Configure SMS API credentials in SmsService.php if using SMS feature
-
-Generate application key
-
-php artisan key:generate
-
-Run migrations
+3.**Run migrations**
 
 php artisan migrate
 
-Seed initial data
+4.**Seed initial data**
 
 php artisan db:seed
 
-Start development server
+5.**Start development server**
 
 php artisan serve
 
@@ -79,28 +66,16 @@ Access the project at http://127.0.0.1:8000
 
 Scheduler Setup
 
-To run the scheduled inactive-reminder command daily:
-
-Open your server’s crontab:
-
-crontab -e
-
-Add the following entry to run Laravel scheduler every minute:
+6.**To run the scheduled inactive-reminder command daily:**
 
 php artisan schedule:work
 
 The command inside routes/Console.php runs inactive-reminder daily at 06:00 AM automatically.
 
-Queue Worker Setup
-
-To process queued jobs (SendReminderJob):
-
-Start the queue worker using:
+7.**Queue Worker Setup**
 
 php artisan queue:work
 
-Alternatively, run as a daemon for continuous processing:
-
-php artisan queue:work --daemon
-
 Make sure QUEUE_CONNECTION in .env is set to database or another supported driver.
+
+8.**Configure SMS API credentials in SmsService.php if using SMS feature**
