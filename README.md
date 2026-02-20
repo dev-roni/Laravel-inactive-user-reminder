@@ -44,7 +44,6 @@ This is a Laravel-based project developed for internship purposes. It provides a
 ```bash
 git clone https://github.com/dev-roni/Laravel-inactive-user-reminder.git
 ```
-cd <project-directory>
 
 2.**Configure environment**
 
@@ -81,3 +80,5 @@ php artisan queue:work
 Make sure QUEUE_CONNECTION in .env is set to database or another supported driver.
 
 8.**Configure SMS API credentials in SmsService.php if using SMS feature**
+
+
