@@ -40,34 +40,44 @@ This is a Laravel-based project developed for internship purposes. It provides a
 
 ## Setup Instructions
 
-# 1. Clone the repository
+1. **Clone the repository**
+```bash
 git clone https://github.com/dev-roni/Laravel-inactive-user-reminder.git
-cd Laravel-inactive-user-reminder
+```
+cd <project-directory>
 
-# 2. Configure environment
-# - Create a MySQL database named "inactive_user_reminder"
-# - Set queue driver in .env (QUEUE_CONNECTION=database recommended)
+2.**Configure environment**
 
-# 3. Run migrations
+create a MySQL database named "inactive_user_reminder"
+
+Set queue driver (QUEUE_CONNECTION=database recommended)
+
+3.**Run migrations**
+```bash
 php artisan migrate
-
-# 4. Seed initial data
+```
+4.**Seed initial data**
+```bash
 php artisan db:seed
-
-# 5. Start development server
+```
+5.**Start development server**
+```bash
 php artisan serve
-# Access the project at http://127.0.0.1:8000
+```
+Access the project at http://127.0.0.1:8000
 
-## Scheduler Setup
+Scheduler Setup
 
-# 6. To run the scheduled inactive-reminder command daily
+6.**To run the scheduled inactive-reminder command daily:**
+```bash
 php artisan schedule:work
-# The command inside routes/Console.php runs inactive-reminder daily at 06:00 AM automatically.
+```
+The command inside routes/Console.php runs inactive-reminder daily at 06:00 AM automatically.
 
-## Queue Worker Setup
-
-# 7. Run queue worker
+7.**Queue Worker Setup**
+```bash
 php artisan queue:work
-# Make sure QUEUE_CONNECTION in .env is set to database or another supported driver.
+```
+Make sure QUEUE_CONNECTION in .env is set to database or another supported driver.
 
-# 8. Configure SMS API credentials in SmsService.php if using SMS feature
+8.**Configure SMS API credentials in SmsService.php if using SMS feature**
