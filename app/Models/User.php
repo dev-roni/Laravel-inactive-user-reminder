@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\UserReminder;
 
 class User extends Authenticatable
 {
@@ -20,8 +21,26 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'last_login_at',
+        'user_type',
         'password',
     ];
+
+    public function reminders()
+    {
+        return $this->hasMany(UserReminder::class);
+    }
+
+    public function scopeInactive($query)
+    {
+        $days = 19;
+
+        return $query->where(function ($q) use ($days) {
+            $q->whereNull('last_login_at')
+            ->orWhere('last_login_at', '<=', now()->subDays($days));
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.
