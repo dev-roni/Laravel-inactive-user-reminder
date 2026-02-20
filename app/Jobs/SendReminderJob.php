@@ -13,12 +13,13 @@ class SendReminderJob implements ShouldQueue
     use Queueable;
 
     public $user;
+    public $tries = 3;
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($user)
     {
-
+        $this->user = $user;
     }
 
     /**
