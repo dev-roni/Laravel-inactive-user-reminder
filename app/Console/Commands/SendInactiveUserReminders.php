@@ -27,6 +27,7 @@ class SendInactiveUserReminders extends Command
      */
     public function handle()
     {
+        //Checking for users who haven't been sent a reminder ‍and dispatch into job for other operation
         User::inactive()
             ->whereDoesntHave('reminders', function ($q) {
                 $q->whereDate('reminder_sent_at', today());

@@ -50,7 +50,7 @@
 
             <!-- General User Message -->
             <div class="mb-3">
-                <label class="form-label">General User Reminder Message</label>
+                <label class="form-label">Not Paid User Reminder Message</label>
 
                 <textarea name="general_user_message"
                           class="form-control @error('general_user_message') is-invalid @enderror"

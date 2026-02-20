@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\UserReminder;
+use App\Models\Setting;
 
 class User extends Authenticatable
 {
@@ -28,9 +29,12 @@ class User extends Authenticatable
         return $this->hasMany(UserReminder::class);
     }
 
+    //use scope for find user who don't login 
     public function scopeInactive($query)
     {
-        $days = 1;
+        //The 'days' data will be fetched from the database
+        $settings = Setting::first();
+        $days = $settings ? $settings->inactive_days : 7;
 
         return $query->where(function ($q) use ($days) {
             $q->whereNull('last_login_at')
