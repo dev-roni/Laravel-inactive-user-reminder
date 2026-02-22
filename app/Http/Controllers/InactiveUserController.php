@@ -8,7 +8,8 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class InactiveUserController extends Controller
-{
+{  
+    //dashboard data
     public function inactiveUser(){
        $days = 7;
 
@@ -30,11 +31,13 @@ class InactiveUserController extends Controller
         ));
     }
 
+    //settings data
     public function settings(){
         $settings = Setting::first();
         return view('settings', compact('settings'));
     }
 
+    //settings data store
     public function settings_store(Request $request)
     {
         $request->validate([
