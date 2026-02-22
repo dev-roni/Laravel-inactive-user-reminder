@@ -20,8 +20,7 @@ class InactiveUserController extends Controller
 
         $recentReminders = UserReminder::with('user')
             ->latest()
-            ->limit(10)
-            ->get();
+            ->paginate(10);
 
         return view('dashboard', compact(
             'totalUsers',
