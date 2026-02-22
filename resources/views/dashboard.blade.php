@@ -45,7 +45,7 @@
 
         <div class="card shadow">
             <div class="card-header bg-success text-white py-3 d-flex justify-content-between">
-                <h5 class="card-title mb-0">Recent Reminders List</h5>
+                <h5 class="card-title mb-0">Today Sent Reminders List</h5>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">

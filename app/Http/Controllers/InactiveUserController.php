@@ -18,7 +18,7 @@ class InactiveUserController extends Controller
 
         $remindersToday = UserReminder::whereDate('reminder_sent_at', today())->count();
 
-        $recentReminders = UserReminder::with('user')
+        $recentReminders = UserReminder::whereDate('reminder_sent_at',today())->with('user')
             ->latest()
             ->paginate(10);
 
